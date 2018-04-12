@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>电费</title>
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/all.css" />
+		<header ></header>
+<style>
+	
+body{font-family:PingFangSC-Regular;background-image:url(img/1.png);background-size:cover;position: absolute;height: 100%;width:100%;margin: 0;padding: 0;}
+.container{padding: 0;margin: 0;height: 100%;width: 100%;}
+input:-moz-placeholder{   
+    color: #ADADAD;   
+}   
+  
+input:-ms-input-placeholder {   
+    color: #ADADAD;   
+}   
+  
+input::-webkit-input-placeholder {   
+    color: #ADADAD;  
+}  	
+</style>
+				
+	</head>
+
+	<body>
+		<div class="container">
+			<section>
+				<div class="row">
+					<a class="return fa fa-angle-left fa-5x" onclick="javascript:history.back(-1)"></a>
+					<div id="eleInput" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div class="eleInput-box">
+							<input id="dormitory_lou" class="eleInput-input" placeholder="宿舍楼号"/>
+						</div>
+						<div class="eleInput-box">
+							<input id="dormitory_hao" class="eleInput-input" placeholder="寝室号"/>
+						</div>
+						<button  class="sure-box" data-toggle="modal" data-target="#myModal">
+			    			查询	
+     			      </button>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+
+									<div class="modal-body">
+										<div class="inf">
+											<p class="modal_p">余电</p>            
+											<span id="kilowatt" class="inf-span"> </span>
+										</div>
+										<div class="inf">
+											<p class="modal_p">余额  </p>     
+											<span id="fees" class="inf-span"> </span>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class=" sure-box-1" data-dismiss="modal">确&nbsp;认</button>
+									</div>
+								</div>
+							</div>
+						</div>
+			<script src="js/jquery-3.2.1.min.js"></script>
+			<script type="text/javascript" src="js/sha1&cookie.js" ></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script>
+				var userData = $.cookie('userData');
+				if(userData){
+				//JSON.parse() 将字符串解析为对象，方便使用
+				  userData = JSON.parse(userData);  
+				};
+				var myDate =new Date();
+				var year=myDate.getFullYear();  
+				var month=myDate.getMonth()+1; 
+				if(month<10)
+				month="0"+month;
+				console.log(userData);
+				$(".sure-box").click(function(){
+					var lou=document.getElementById("dormitory_lou").value;
+					var hao=document.getElementById("dormitory_hao").value;
+					var pass=lou+hao+year+'-'+month+userData.data.studentKH+userData.data.remember_code_app;
+					pass=hex_sha1(pass);
+					var herf='https://api.huthelper.cn/api/v3/Get/power/'+lou+'/'+hao+'/'+userData.data.studentKH+'/'+userData.data.remember_code_app+'/'+pass;
+					console.log(herf);
+				$.ajax({
+				    url:herf, //请求地址
+				    type:'POST',   //请求方式
+				    data:{}, //请求参数
+				    jsonp: "callback",
+				    async : true, 
+				    crossDomain: true,
+				    dataType:"json"     // 返回值类型的设定
+				}).done(function(res) {
+					console.log("链接成功");
+					console.log(res);console.log(res.ammeter);console.log(res.balance);
+					document.getElementById("kilowatt").innerHTML=res.ammeter+"度";
+					document.getElementById("fees").innerHTML=res.balance+"元";
+						}).fail(function(res) {
+							console.log("链接错误");
+						});
+				});
+		</script>
+	</body>
+
+</html>

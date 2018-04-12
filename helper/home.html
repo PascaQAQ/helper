@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>homeTest</title>
+	</head>
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/all.css" />
+		<style>
+			/*整体*/
+			#homeHeadTest i{color: #F7F7F7;}
+			html,body{height: 100%;width: 100%;background-color: #F7F7F7;margin: 0;}
+			
+		</style>
+	<body>
+		<div id="homeHeadTest">
+			<div id="timeBox" style="margin-bottom: 10%;">
+						<div class="homeTime"><span class="time" id="week"></span>&nbsp;&nbsp;<span class="time" id="weekDay"></span></div>
+						<div class="homeDate">
+							<div class="date" id="date1"></div>
+							<div class="date" id="date2"></div>
+							<div class="date" id="date3"></div>
+						</div>
+						<div class="homeTimeline">
+							<i class="fa fa-clock-o fa-4x" ></i>
+							<div class="lineBox">
+							</div>
+							
+							<div class="lineBox"></div>
+							<div class="lineBox"></div>
+							<div class="lineBox"></div>
+						</div>
+						<div class="homeThings">
+							<div class="date"><p id="thing1"></p>&nbsp;<p id="thingTime1"></p>天</div>
+							<div class="date"><p id="thing2"></p>&nbsp;<p id="thingTime2"></p>天</div>
+							<div class="date" id="ifthing"><p id="thing3"></p>&nbsp;<p id="thingTime3"></p>天</div>	
+						</div>
+			</div>
+			
+		</div>
+		
+		<div id="homeMid">
+					<button class="workBox " onclick="javascript:window.location.href=('class.html')">
+						<i class="fa fa-table fa-5x"></i>
+						<span class="midExp" >课程表</span>
+					</button>
+					<button class="workBox " onclick="javascript:window.location.href=('electricity.html')">
+						<i class="fa fa-lightbulb-o fa-5x"></i>
+						<span class="midExp">电费查询</span>
+					</button>
+					<button class="workBox " onclick="javascript:window.location.href=('xiaoli.html')">
+						<i class="fa fa-table fa-5x"></i>
+						<span class="midExp">校历</span>
+					</button>				
+				
+
+		</div>
+		
+		<div  id="elseBox" onclick="javascript:window.location.href=('else.html')">
+					<button class="elseButton">
+						更多功能&nbsp;&nbsp;点击查看
+					</button>
+		</div>
+		
+		
+		
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript" src="js/sha1&cookie.js" ></script>
+	<script>
+		
+		        var userData = $.cookie('userData');
+				if(userData){
+				//JSON.parse() 将字符串解析为对象，方便使用
+				  userData = JSON.parse(userData);  
+				};
+				console.log(userData);
+				
+		      //获取周数
+		      var mon = new Date().getMonth() + 1;
+		      var month = mon;
+		      var da = new Date().getDate();
+		      var day = da - 4;
+		      var t, we;
+		      t = month - 3;
+		      if (t < 0)
+		        console.log('日期异常');
+		      else if (t == 0) {
+		        we = day / 7 - day / 7 % 1 + 1
+		      }
+		      else if (t == 1) {
+		        we = (day + 30) / 7 + 1
+		      }
+		      else if (t == 2) {
+		        we = (day + 61) / 7 + 1
+		      }
+		      else if (t == 3) {
+		        we = (day + 91) / 7 + 1
+		      }
+		      else if (t == 4) {
+		        we = (day + 122) / 7 + 1
+		      }
+		      we =Math.floor(we);
+		      //缓存周数和月份
+		      $.cookie('weekNumber' , JSON.stringify(we));
+		      $.cookie('monthNumber' , JSON.stringify(mon));
+		      //获取星期数
+		      var str = "星期"; 
+				var week = new Date().getDay(); 
+				switch (week) { 
+				        case 0 : 
+				                str += "日"; 
+				                break; 
+				        case 1 : 
+				                str += "一"; 
+				                break; 
+				        case 2 : 
+				                str += "二"; 
+				                break; 
+				        case 3 : 
+				                str += "三"; 
+				                break; 
+				        case 4 : 
+				                str += "四"; 
+				                break; 
+				        case 5 : 
+				                str += "五"; 
+				                break; 
+				        case 6 : 
+				                str += "六"; 
+				                break; 
+				}  
+			  
+		      document.getElementById("week").innerHTML="第"+we+"周";
+		      document.getElementById("weekDay").innerHTML=str;
+		      console.log(we + "啊" + str);
+			
+			//接收日期信息
+			$.ajax({
+				    url:'https://api.huthelper.cn/api/v3/Get/calendar', //请求地址
+				    type:'POST',   //请求方式
+				    data:{}, //请求参数
+				    async : true, 
+				    crossDomain: true,
+				    dataType:"json"     // 返回值类型的设定
+				}).done(function(res) {
+
+					//替换
+					document.getElementById("date1").innerHTML=res[0].date;
+					document.getElementById("date2").innerHTML=res[1].date;
+					document.getElementById("thing1").innerHTML=res[0].name;
+					document.getElementById("thing2").innerHTML=res[1].name;
+					document.getElementById("thingTime1").innerHTML=res[0].days;
+					document.getElementById("thingTime2").innerHTML=res[1].days;
+					if(res[2]){
+					document.getElementById("date3").innerHTML=res[2].date;
+					document.getElementById("thing3").innerHTML=res[2].name;
+					document.getElementById("thingTime3").innerHTML=res[2].days;
+						}else{					
+					document.getElementById("ifthing").style.display='none';}
+						}).fail(function(res) {
+							console.log("链接错误");
+						});
+	</script>
+	</body>
+</html>
