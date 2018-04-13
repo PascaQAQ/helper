@@ -165,7 +165,7 @@ html{margin: 0;padding: 0;left: 0;top: 0;bottom: 0;right: 0;}
 
 
 /*home*/
-	#homeHeadTest{display: flex;flex-direction: column-reverse;background-image: url(../img/2.jpeg);background-size: cover;height: 35.5%;}
+	#homeHeadTest{display: flex;flex-direction: column-reverse;background-image: url(http://images.huthelper.cn:8888/uploads/wx/img/2.jpeg);background-size: cover;height: 35.5%;}
 		
 			#timeBox{height: 35.8%;margin-top: 35.2%;margin-left: 3%;}
 			.homeTime{color: #FFFFFF;margin-bottom: 5%;}
@@ -191,7 +191,7 @@ html{margin: 0;padding: 0;left: 0;top: 0;bottom: 0;right: 0;}
 			.lineBox:nth-child(3):before{margin-left: 48%; }
 			.lineBox:nth-child(4):before{margin-left: 69%; }
 			.lineBox:nth-child(5):before{display: none;}		
-			.homeThings{color: #FFFFFF;font-size: 18px;display: flex;margin-top: -2%;text-align: center;}
+			.homeThings{color: #FFFFFF;font-size: 1.2em;display: flex;margin-top: -1.5%;margin-left: -1.5%;text-align: center;}
 			.homeThings .date:nth-child(1){margin-left: 21%;display: flex;width: 12%;text-align: center;}
 			.homeThings .date:nth-child(2){margin-left: 10%; display: flex;width: 12%;text-align: center;}
 			.homeThings .date:nth-child(3){margin-left: 10%; display: flex;width:  12%;text-align: center;}	
@@ -200,7 +200,7 @@ html{margin: 0;padding: 0;left: 0;top: 0;bottom: 0;right: 0;}
 			.workBox{background-color:#FFFFFF;margin: 0 2%;width: 28%;background-color: #FFFFFF;border:none;box-shadow: 1px 1px 8px 0 rgba(0,0,0,0.28);border-radius: 2px;}
 			.workBox span{margin-top: 10%;display: block;font-family: PingFangSC-Medium;font-size: 30px;color: #353535;letter-spacing: 1px;font-weight: 700;}
 			#elseBox{margin: 5% 0;display: flex;height: 23%;background: #FFFFFF;box-shadow: 0 2px 8px 0 rgba(0,0,0,0.24);}
-			.elseButton{margin: 2% 0 2% 4%;width: 92.8%;height:90%;background-image: url(../img/4.jpeg);background-size:cover;border-radius:10px;font-family: PingFangSC-Semibold;font-size: 48px;color: #FFFFFF;letter-spacing: 2px;}
+			.elseButton{margin: 2% 0 2% 4%;width: 92.8%;height:90%;background-image: url(http://images.huthelper.cn:8888/uploads/wx/img/4.jpeg);background-size:cover;border-radius:10px;font-family: PingFangSC-Semibold;font-size: 48px;color: #FFFFFF;letter-spacing: 2px;}
 
 
 /*class*/

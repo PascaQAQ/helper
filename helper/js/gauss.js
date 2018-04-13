@@ -74,3 +74,4 @@ function gaussBlur(imgData) {
     }
     return imgData;
 }
+
