@@ -1,0 +1,139 @@
+@import 'var.less';
+
+.score {
+  height: 100%;
+  font-size: 16px;
+
+  header {
+    text-align: center;
+    color: #fff;
+    background-color: rgba(76, 166, 199, .5);
+
+    span {
+      display: block;
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+  .remarks {
+    font-size: 15px;
+    margin: 16px 0;
+    color: #B4B4B4;
+  }
+  .totalScore-boxes {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .content {
+      flex: 1;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      z-index: 1;
+      background-color: #FFFFFF;
+    }
+    .totalScore-box {
+      display: flex;
+      justify-content: space-around;
+      padding-bottom: 12.5px;
+      margin: 15px 12px 0px 12px;    
+      font-size: 10px;
+      border-bottom: solid #DEDEE0 1px;
+    }
+    .totalMessage {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .totalNum {
+      color: #2CA1CB;
+      font-size: 18px;
+      padding-top: 5px;
+    }
+    .query {
+      color: #777;
+      text-align: center;
+      margin: 20px 0;
+    }
+  }
+
+  .terms {
+    display: flex;
+    height: 30px;
+    padding-bottom: 3px;
+
+    .term {
+      color: #FFFFFF;
+      font-size: 12px;
+      text-align: center;
+      width: 20%;
+    }
+    .term-active{
+      border-bottom: solid #FDFDFD 4px;
+    }
+  }
+
+  .branchScore-boxes {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .content {
+      flex: 1;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      z-index: 1;
+      background: #fff;
+    }
+    .branchScore-box {
+      display: flex;
+      justify-content: space-around;
+      padding-bottom: 12.5px;
+      margin: 15px 12px 0px 12px;    
+      font-size: 14px;
+      border-bottom: solid #DEDEE0 1px;
+    }
+
+    .class {
+      width: 40%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .branchMessage {
+      padding: 0 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .query {
+      color: #777;
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+
+  footer {
+    text-align: center;
+    background: #fff;
+
+    .toBranch {
+      height: 40px;
+      width: 80%;
+      margin: 15px 0;
+      background-color: #45A0C1;
+      border-radius: 100px;
+      color: #FFFFFF;
+      font-size: 14px;
+      border: none;
+      outline: none;
+      letter-spacing: 1px;
+    }
+  }
+}

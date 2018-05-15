@@ -1,0 +1,35 @@
+.toast-it {
+  background-color: rgba(0, 0, 0, .8);
+  color: #fefefe;
+  padding: 3px 20px;
+  border-radius: 20px;
+  text-align: center;
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%);
+  opacity: 0;
+  width: 280px;
+  letter-spacing: 1px;
+  pointer-events: none;
+  z-index: 100;
+
+  animation-name: toast;
+  animation-timing-function: ease-in;
+  animation-duration: 3s;
+}
+
+@keyframes toast {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: .8;
+  }
+  90% {
+    opacity: .8;
+  }
+  100% {
+    opacity: 0;
+  }
+}

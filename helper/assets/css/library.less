@@ -1,0 +1,40 @@
+@import 'var.less';
+
+.library {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  nav {
+    position: relative;
+    color: #333;
+    background: #f6f6f6;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+  }
+
+  .img-box {
+    flex: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1;
+    background: #fff;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 18px;
+
+    .img {
+      width: 100%;
+      margin-top: 20px;
+      border: 1px #ccc solid;
+    }
+  }
+
+  iframe {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+  }
+}

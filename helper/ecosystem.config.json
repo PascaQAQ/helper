@@ -1,0 +1,19 @@
+{
+  "apps": {
+    "name": "WX",
+    "max_memory_restart": "300M",
+    "script": "server.js",
+    "instances": 2,
+    "exec_mode": "cluster",
+    "env": {
+      "NODE_ENV": "production",
+      "PORT": "3010"
+    },
+    "env_production": {
+      "NODE_ENV": "production"
+    },
+    "env_develpomemt": {
+      "NODE_ENV": "development"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@import 'var.less';
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	min-height: 500px;
+	font-size: 16px;
+}
+
+html, body, div, p, section, article, h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+html, body, #__next, .app {
+	height: 100%;
+	font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+		'Microsoft YaHei', '微软雅黑', 'WenQuanYi Micro Hei', Arial, sans-serif;
+		
+  -ms-touch-action: manipulation;
+	  	touch-action: manipulation;
+
+	//    -moz-user-select: none;
+  // -webkit-user-select: none;
+	// 		-ms-user-select: none;
+	// 				user-select: none;
+					
+	// wechat font-size
+	-webkit-text-size-adjust: 100% !important;
+     -moz-text-size-adjust: 100% !important;
+          text-size-adjust: 100% !important;
+}
+
+#__next {
+  background-color: #ccc;
+  background-image: url("@{public-path}login.jpg");
+  background-size: cover;
+}
+
+@media (min-width: 1024px) {
+  #__next {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
+  html {
+    background: #555;
+  }
+}
+
+.app {
+	position: relative;
+}
+
+.btn-back {
+	color: #fff;
+	display: block;
+	position: absolute;
+    text-align: center;
+    font-size: 25px;
+    padding: .2em .2em;
+	top: .2em;
+	left: 0em;
+	z-index: 10;
+	cursor: pointer;
+}
+
+.trans {
+	// will-change: opacity;
+	// opacity: 0;
+	transition: opacity .3s ease-out;
+}
+
+.trans-end {
+	opacity: 1;
+}
