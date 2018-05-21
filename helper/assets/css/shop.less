@@ -1,11 +1,10 @@
-@import '../var.less';
+@import 'var.less';
 
-.things {
+.shop {
   display: flex;
   flex-direction: column;
   background-color: rgba(34, 34, 34, .2);
   height: 100%;
-  color: #000;
   
   img {
     font-size: 12px;
@@ -22,17 +21,12 @@
     .create {
       position: absolute;
       float: right;
-      font-size: 18px;
-      right: 8px;
-      top: 0;
-      cursor: pointer;
-    }
-    .fa-plus-1 {
       font-size: 22px;
-      top: -2px;
+      right: 6px;
+      top: 0;
     }
     .search {
-      margin-right: 2.5em;
+      margin-right:2.5em;
       top: -1px;
     }
   }
@@ -41,6 +35,7 @@
     flex: 1;
     background-color: #EFF1F4;
   }
+
 
   header {
     text-align: center;
@@ -67,19 +62,15 @@
     }
   }
 
-  .things-boxes {
+  .shop-boxes {
     display: flex;
     flex-wrap: wrap;
-
-    .things-box {
+    .shop-box {
       width: 48%;
       background: #FFFFFF;
       margin: 1%;
       display: flex;
       flex-direction: column;
-      padding: 1em;
-      border-radius: 3px;
-
       &:last-child {
         margin-bottom: 0;
       }
@@ -88,51 +79,43 @@
     .del-moment {
       color: red;
     }
-    
-    .thingTitle {
+    .shop-content{
       display: flex;
-      justify-content: space-between;
-      padding-bottom: 5px;
-      border-bottom: solid #ddd 1px;
-
-      .type-2 {
-        flex-shrink: 0;
-      }
-    }
-    .thingContent {
-      display: flex;
+      flex-direction: column;
       flex: 1;
-      padding: 5px 0; 
-      font-size: 14px;
+    }
+    .shop-title {
       color: #333;
+      padding: .5em;
+      flex: 1;
     }
-    .thingNum {
+    .shop-message{
+      padding: 0 .5em;
+      padding-bottom: 5px;
+    }
+    .shop-price {
       font-size: 14px;
-      margin-top: 5px;
+      color: #6785BB;
+      float: right;
     }
-    .thingMessage {
-      margin-top: 5px;
+    .shop-time {
+      font-size: 14px;
+      color: #888;
     }
   }
-  
-  .thingImg {
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 5px;
-    border-bottom: solid #ddd 1px;
 
-    .img {
-      position: relative;
-      width: 50%;
-    }
+  .clearfix{
+    clear: both;
+  }
 
+  .img-box {
+    position: relative;
+    width: 100%;
     .fill {
       height: 0;
-      padding-bottom: 100%;
+      padding: 50%;
     }
-
     .img-content {
-      cursor: pointer;
       position: absolute;
       padding: 0;
       margin: 0;
@@ -140,20 +123,16 @@
       top: 0;
       right: 0;
       bottom: 0;
+    } 
+    img {
+      height: 100%;
+      width: 100%;
+      padding: 0 1px 1px 0;
+      object-fit: cover;  
+    } 
+  }
 
-      .img-box {
-        height: 100%;
-        width: 100%;
-        padding: 0 1px 1px 0;
-        object-fit: cover;
-      }
-    }    
-  }
-  
-  .active {
-    border-bottom: solid #FDFDFD 4px;
-  }
-  .lafSearch {
+  .shop-search {
     display: flex;
     align-items: center;
     text-align: center;
@@ -177,5 +156,5 @@
     outline: none;
     border: none;
     margin: 0 4px;
-  }
+  } 
 }

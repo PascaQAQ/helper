@@ -22,18 +22,15 @@
     .create {
       position: absolute;
       float: right;
-      font-size: 18px;
+      font-size: 21px;
       right: 6px;
       top: 0;
+      cursor: pointer;
     }
   }
 
   .main {
     flex: 1;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    z-index: 1;
   }
 
   header {
@@ -56,6 +53,7 @@
     .info {
       font-size: 16px;
       margin-left: 1em;
+      cursor: pointer;
     }
     .name {
       font-size: 14px;
@@ -83,6 +81,7 @@
 
     .del-moment {
       color: red;
+      cursor: pointer;
     }
   }
   
@@ -92,6 +91,7 @@
     padding: .5em 0;
     
     .photo {
+      flex-flow: 0;
       border-radius: 50%;
       cursor: pointer;
     }
@@ -105,6 +105,10 @@
       font-weight: 550;
       padding-bottom: .2em;
       color: #5375B2;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     .user-bio {
@@ -158,6 +162,7 @@
         width: 100%;
         padding: 0 1px 1px 0;
         object-fit: cover;
+        cursor: pointer;
       }
     }    
   }
@@ -182,6 +187,7 @@
       outline: none;
       border: solid #aaa 1px;
       -webkit-appearance: none;
+      appearance: none;
       font-size: 14px;
     }
 
@@ -205,11 +211,25 @@
     .comment-box-name {
       color: #5375B2;
       margin-right: 5px;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     .del {
       margin-left: 10px;
       color: red;
+      cursor: pointer;
     }
   }
+}
+
+.jokes-float {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

@@ -22,15 +22,7 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-  	document.querySelector(".btn-back").style.color = "#333"
     this.state.isMounted = true
-  }
-  
-  returnLogin() {
-  	document.querySelector('#studentName').style.display = "block" 
-    document.querySelector('#btn-login').style.display = "block" 
-    document.querySelector('#return-login').style.display = "none"
-    document.querySelector('.message-boxes').style.display = "none" 
   }
   
   async handleQuery(e) {
@@ -86,10 +78,12 @@ export default class extends React.Component {
         return
       }
 
-      btnLogin.style.display = "none"
-      nameInput.style.display = "none"
-      returnLogin.style.display = "block"
-      this.$('.message-boxes').style.display = "block"
+      this.$('.message-boxes').style.display = 'block'
+      this.$('.form').style['margin-top'] = '10%'
+
+      res.data.data = res.data.data.sort((a, b) => 
+        a.dep_name > b.dep_name
+      )
 
       this.state.isMounted && this.setState({
         studentMessage: res.data.data
@@ -113,30 +107,9 @@ export default class extends React.Component {
     var state = this.state
     return (
       <Trans className="find">
-        <nav>
-          找人
-        </nav>
-        <section className="main">
-          <table className="message-boxes">   
-            <thead>
-              <tr>
-                <th>姓名</th>
-                <th>学院</th>
-                <th>班级</th>
-              </tr>
-            </thead>
-            <tbody> 
-            {
-              state.studentMessage.map((v, i) =>
-                <tr key={ i }>
-                  <td>{ v.TrueName }</td>
-                  <td>{ v.dep_name }</td>
-                  <td>{ v.class_name }</td>
-                </tr>
-              )
-            }
-            </tbody>
-          </table>
+        <header>
+        </header>
+        <section className="main scroll">
           <div className="form">
             <input id="studentName" className="input" placeholder="姓 名" />
             <button id="btn-login" className="btn-login" onClick={ this.handleQuery }>
@@ -146,6 +119,24 @@ export default class extends React.Component {
               返回查询
             </button>
           </div>
+          <table className="message-boxes">   
+            <thead>
+              <tr>
+                <th>学院</th>
+                <th>班级</th>
+              </tr>
+            </thead>
+            <tbody> 
+            {
+              state.studentMessage.map((v, i) =>
+                <tr key={ i }>
+                  <td>{ v.dep_name }</td>
+                  <td>{ v.class_name }</td>
+                </tr>
+              )
+            }
+            </tbody>
+          </table>
         </section>
       </Trans>
     )

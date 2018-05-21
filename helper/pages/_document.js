@@ -25,7 +25,7 @@ export default class MyDocument extends Document {
     return (
       <html lang='zh'>
         <Head>
-          <title>工大助手</title>
+          <title>新工大助手</title>
           <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no" />
           <meta name="format-detection" content="telephone=no"/>
           <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -42,10 +42,9 @@ export default class MyDocument extends Document {
             <link rel="stylesheet" href={ `/_next/static/style.css` } /> :
             <link rel="stylesheet" href={ `${assetPrefix}/_next/static/style-${buildId}.css` } />
           }
-          <link rel="stylesheet" href="/static/css/fontello-5.12/css/fontello.css" />
+          <link rel="stylesheet" href="/static/css/fontello-5.18/css/fontello.css" />
           <link rel="dns-prefetch" href="https://api.huthelper.cn" />
-          <link rel="dns-prefetch" href="https://hut.htmln.com" />
-          <link rel="dns-prefetch" href="https://pic.htmln.com" />
+          <link rel="preconnect" href="https://api.huthelper.cn" />
         </Head>
         <body>
           <div dangerouslySetInnerHTML={{ __html: fuckIE }} />

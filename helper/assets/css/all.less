@@ -18,7 +18,7 @@ a {
 	text-decoration: none;
 }
 
-html, body, #__next, .app {
+html, body, #__next, .index {
 	height: 100%;
 	font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
 		'Microsoft YaHei', '微软雅黑', 'WenQuanYi Micro Hei', Arial, sans-serif;
@@ -37,34 +37,59 @@ html, body, #__next, .app {
           text-size-adjust: 100% !important;
 }
 
-#__next {
-  background-color: #ccc;
-  background-image: url("@{public-path}login.jpg");
-  background-size: cover;
+.scroll {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 1024px) {
+	.scroll {
+		overflow-y: auto;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.index {
+		display: flex;
+	}
 }
 
 @media (min-width: 1024px) {
   #__next {
-    max-width: 1024px;
-    margin: 0 auto;
-  }
+		max-width: 1024px;
+		margin: 0 auto;
+		box-shadow: 0px 0px 8px #777;
+	}
+	
+	body {
+		padding: 20px 0 !important;
+	}
 
   html {
-    background: #555;
-  }
+    background: #eee;
+	}
+	
+	.hidden-lg {
+		display: none !important;
+	}
 }
 
-.app {
-	position: relative;
+@media (max-width: 1024px) {
+  .hidden-sm {
+		display: none !important;
+	}
 }
+
+// index
 
 .btn-back {
 	color: #fff;
 	display: block;
 	position: absolute;
-    text-align: center;
-    font-size: 25px;
-    padding: .2em .2em;
+	text-align: center;
+	font-size: 25px;
+	padding: .2em .2em;
 	top: .2em;
 	left: 0em;
 	z-index: 10;

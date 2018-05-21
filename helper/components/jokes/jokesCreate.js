@@ -2,7 +2,7 @@ import React from 'react'
 import Trans from '../trans'
 import store from '../../store/index'
 import Upload from '../common/upload'
-import Axios from '../../assets/js/axios.util'
+import Post from '../../assets/js/post.util'
 import { toastIt } from '../../components/toast/toast'
 
 import '../../assets/css/jokes/jokesCreate.less'
@@ -27,26 +27,13 @@ export default class extends React.Component {
   }
 
   async onCreate() {
-    var res = await Axios({
-      method: 'POST',
+    var res = await Post({
       url: '/api/v3/statement/create/'
        + store.userData.data.studentKH + '/' + store.userData.data.remember_code_app,
       data: {
         content: document.querySelector('textarea').value,
         user_id: store.userData.data.user_id,
         hidden: this.state.urls.join('//')
-      },
-      transformRequest: [
-        function (data) {
-          let trans = ''
-          for (let it in data) {
-            trans += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-          }
-          return trans
-        }
-      ],
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
     

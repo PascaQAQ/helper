@@ -49,7 +49,7 @@ export default class Upload extends React.Component {
       return
     }
 
-    if (!/^image/.test(file.type)) {
+    if (!/jpg|jpeg|gif|png/.test(file.type)) {
       toastIt('不是图片文件')
       return
     }
@@ -81,8 +81,8 @@ export default class Upload extends React.Component {
 
     this.state.pending = true
 
-    xhr.timeout = 30000
     xhr.open('POST', this.upURL)
+    xhr.timeout = 30000
 
     xhr.onreadystatechange = e => {
       if (xhr.readyState === 4) {
@@ -163,7 +163,7 @@ export default class Upload extends React.Component {
           }
           <input 
             id="upload" type="file"
-            onChange={ this.onUploadPic } accept=".jpg, .jpeg, .png, .gif" />
+            onChange={ this.onUploadPic }/>
           {
             this.state.imgs.length < this.props.max ? 
             <label htmlFor="upload">添加图片</label> : ''

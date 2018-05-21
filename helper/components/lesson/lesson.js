@@ -145,16 +145,16 @@ export default class extends React.Component {
     return (
       <Trans className="lesson">
         <header>
-          <div onClick={ this.prev.bind(this) }>上一周</div>
+          <div className="btn" onClick={ this.prev.bind(this) }>上一周</div>
           <div>第 { this.state.weekNumber } 周</div>
-          <div onClick={ this.next.bind(this) }>下一周</div>
+          <div className="btn" onClick={ this.next.bind(this) }>下一周</div>
           <div 
-            className="refresh" 
+            className="refresh btn" 
             onClick={ this.refresh.bind(this, this.state.weekNumber, false) }>
             <i className="fa fa-arrows-cw"></i>
           </div>
         </header>
-        <section className="main">
+        <section className="main scroll">
           <table>
             <thead>
               <tr>

@@ -9,32 +9,27 @@
   .main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
-    text-align: center;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
     flex: 1;
+    padding: 20px 0;
   }
 
   .form {
+    margin-top: 30%;
     padding: 0 20px;
     width: 320px;
   }
 
-  nav {
+  header {
     position: relative;
-    color: #333;
-    background: #f6f6f6;
     height: 50px;
     line-height: 50px;
     text-align: center;
   }
 
   .input {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     background-color: rgba(200, 200, 200, .5);
     color: #fff;
     border-radius: 100px;
@@ -70,7 +65,7 @@
   }
 
   .btn-login {
-    margin: 30px 0;
+    margin: 20px 0;
     background-color: #f1f1f1;
     color: #002c51;
     border-radius: 100px;
@@ -95,5 +90,9 @@
   .message-boxes {
     display: none;
     color: #eee;
+
+    td, th {
+      padding: 0 10px;
+    }
   }
 }

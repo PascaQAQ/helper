@@ -8,9 +8,11 @@ const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dir: '.', dev })
 const handle = app.getRequestHandler()
-const buildId = fs.readFileSync(path.join(__dirname, '.next', 'BUILD_ID'), 'utf8')
 
-fs.copyFileSync('.next/static/style.css', `.next/static/style-${buildId}.css`)
+if (!dev) {
+  const buildId = fs.readFileSync(path.join(__dirname, '.next', 'BUILD_ID'), 'utf8')
+  fs.copyFileSync('.next/static/style.css', `.next/static/style-${buildId}.css`)
+}
 
 const ssrCache = new LRUCache({
   max: 10,
@@ -31,7 +33,9 @@ app.prepare()
     })
 
     server.get('*', (req, res) => {
-      res.setHeader('Cache-Control', 'public, max-age=31557600')
+      if (!dev)
+        res.setHeader('Cache-Control', 'public, max-age=31557600')
+
       return handle(req, res)
     })
 

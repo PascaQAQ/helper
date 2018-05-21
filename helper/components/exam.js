@@ -101,7 +101,7 @@ export default class extends React.Component {
         <header>
           考试计划
         </header>
-        <section className="inner">
+        <section className="inner scroll">
           { this.state.isQueried ? '' : <div className="query">正在查询...</div> }
           {
             this.state.examList.map((v, i) => 

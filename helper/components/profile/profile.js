@@ -56,6 +56,7 @@ export default (props) => {
   return (
     <Trans className="profile">
       <header className="header"></header>
+
       <section className="main">
         <img 
           width="80"
@@ -69,6 +70,7 @@ export default (props) => {
         <div className="name">{ store.userData.data.TrueName || '某人' }</div>
         <div className="class">{ store.userData.data.dep_name || '' }</div>
       </section>
+
       <section className="body">
         <section className="opts">
           <div className="opt" onClick={ () => props.onViewChange('#changePic') }>
@@ -88,18 +90,19 @@ export default (props) => {
             <span className="v-bio val">{ store.userData.data.bio || '未设置' }</span>
           </div>
         </section>
+
         <section className="about">
           <p>
-          新工大助手
+            新工大助手 Web 端: <span>http://huthelper.cn</span>
           </p>
           <p>
-            Web 端：
-            <a target="_blank" href="http://huthelper.cn">huthelper.cn</a>
+            也可在微信中搜索小程序「<span>HUT助手</span>」
           </p>
           <p>
-            可添加到桌面，方便下次访问
+            可添加到书签或桌面，方便下次访问
           </p>
         </section>
+        
         <footer className="footer">
           <a 
           className="reset"
@@ -109,8 +112,8 @@ export default (props) => {
           &nbsp; &nbsp;
           <a 
           className="reset"
-          onClick={ () => toastIt('请关注「HUT助手」公众号，直接留言反馈', 5000) }>
-            联系开发者
+          onClick={ () => alert('请关注「HUT助手」公众号，直接留言反馈') }>
+            反馈
           </a>
         </footer>
       </section>

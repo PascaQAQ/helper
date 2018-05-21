@@ -123,4 +123,5 @@ NETWORK:
 ## Todo
 
 - nav and back/refresh
+- skel items
 

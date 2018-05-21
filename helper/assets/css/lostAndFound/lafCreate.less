@@ -16,82 +16,63 @@
       position: absolute;
       float: right;
       font-size: 18px;
-      right: 6px;
+      right: 8px;
       top: 0;
     }
   }
-  .content-top {
-    padding: 1em 1em 4em 1em;
-    background-color: #97C7AA;
-  }
-  .content-bot {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    background-color: #FFFFFF;
-    margin: 0 auto;
-    margin-top: -3em;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    padding: 1em;
-  }
-  .message {
-    padding: 1em;
-    input{
-      border: none;
-      margin: 10px 0;
-      width: 50%;
-    }
-    p{
-      font-size: 12px;
-    }
-  }
-  .type {
-    text-align: center;
-    input{
-      width: 10px;
-    }
-  }
-  section.content {
 
+  .content {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: #EAEAEA;
+    background-color: #fff;
 
     textarea {
-      background-color: #97C7AA;
       border: none;
       width: 100%;
-      font-size: 16px;
       outline: none;
-      color: #FFFFFF;
+      padding: 10px;
+      color: #333;
       -webkit-appearance: none;
+      background: #f1f1f1;
     }
-    textarea::placeholder {
-      color: #FFFFFF;
-    }
-    select {
-      margin: 10px 10px 0 0;
-    }
-    
-    .upload {
-      margin-top: 16px;
-    }
-    .btn-login {
-      margin: 30px 0;
-      background-color: #00a8e2;
-      color: #ffffff;
-      border-radius: 5px;
-      width: 65px;
-      height: 2.5em;
-      font-size: 14px;
+
+    .input {
+      padding: 3px 5px;
+      height: 30px;
       outline: none;
+      -webkit-appearance: none;
       border: none;
-  
-      &:hover {
-        background-color: #ccc;
-      }
+      width: 100%;
+      background: #f1f1f1;
+    }
+  }
+
+  .message {
+    padding: 1em;
+
+    p {
+      font-size: 13px;
+      margin-bottom: 5px;
+      color: #444;
+    }
+
+    .opt-title {
+      font-size: 14px;
+      margin-right: 5px;
+    }
+
+    select {
+      outline: none;
+      background: #f1f1f1;
+    }
+  }
+
+  .type {
+    input {
+      width: 10px;
+    }
+
+    label {
+      font-size: 14px;
     }
   }
 }

@@ -1,0 +1,53 @@
+@import '../var.less';
+
+.index {
+	height: 100%;
+
+	aside {
+		background: #fefefe;
+		padding: 30px 80px 0 28px;
+		font-size: 20px;
+    letter-spacing: 1px;
+    border-right: 1px #ccc solid;
+
+		a {
+			transition: color .3s;
+		}
+
+		a:hover {
+			color: rgb(73, 160, 201);
+			cursor: pointer;
+		}
+
+		.item-warp {
+			display: block;
+		}
+
+		.title-item-warp {
+			margin-bottom: 50px;
+		}
+
+		.item-user {
+			font-weight: bold;
+			font-size: 23px;
+			margin: 20px 0;
+		}
+
+		.item {
+			margin: 20px 0;
+		}
+
+		.item-name {
+			padding-left: 7px;
+		}
+	}
+
+	.main-content {
+		flex: 1;
+		background-color: #ddd;
+		background-image: url("@{public-path}login.jpg");
+		background-size: cover;
+		position: relative;
+		height: 100%;
+	}
+}

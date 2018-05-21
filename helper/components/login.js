@@ -10,6 +10,13 @@ export default class extends React.Component {
   constructor(props) {
     super(props)
     this.handleLogin = this.handleLogin.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
+  }
+
+  handleKeyPress(e) {
+    if (e.key == 'Enter') {
+      this.handleLogin()
+    }
   }
 
   async handleLogin(e) {
@@ -72,8 +79,12 @@ export default class extends React.Component {
             <h1 className="title">工大助手</h1>
           </header>		
           <section className="form">
-            <input id="username" className="input" placeholder="学 号" />
-            <input id="password" className="input" placeholder="密 码" />
+            <input 
+              onKeyPress={this.handleKeyPress}
+              id="username" className="input" placeholder="学 号" />
+            <input
+              onKeyPress={this.handleKeyPress}
+              id="password" className="input" placeholder="密 码" />
             <button id="btn-login" className="btn-login" onClick={ this.handleLogin }>
               登 录
             </button>

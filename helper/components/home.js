@@ -4,6 +4,7 @@ import Link from 'next/link'
 import store from '../store'
 import dataformat from 'dateformat'
 import Axios from '../assets/js/axios.util'
+import { toastIt } from '../components/toast/toast'
 
 import '../assets/css/home.less'
 
@@ -32,12 +33,12 @@ export default class extends React.Component {
   render() {
     return (
       <Trans className="home">
-        <header className="header">
+        <header className="header hidden-lg">
           <a className="user" onClick={ this.handleViewChange.bind(this, '#profile') }>
             <i className="fa fa-user-o" ></i>
           </a>
           <a className="refresh" onClick={ () => location.reload(true) }>
-            <i className="fa fa-arrows-cw"></i>
+            <i className="fa fa-arrows-cw" ></i>
           </a>
           <section className="week">
             { this.state.timeText }
@@ -57,8 +58,30 @@ export default class extends React.Component {
             </section>
           </section>
         </header>
+
+        <header className="header-lg hidden-sm">
+          <div className="space"></div>
+          <div>
+          <div className="logo">
+            <div className="title">工大助手</div>
+            <div className="week">{ this.state.timeText }</div>
+          </div>
+          <div className="timeline">
+            {
+              this.state.timeLine.map((v, i) => 
+                <div className="date-group" key={ i }>
+                  <div className="date">{ v.date }</div>
+                  <div className={ i ? 'dot' : 'dot dot-first' }></div>
+                  <div className="date-content">{ `${v.name} ${v.days} 天` }</div>
+                </div>
+              )
+            }
+          </div>
+          </div>
+          <div className="bottom"></div>
+        </header>
         
-        <section className="funcs">
+        <section className="funcs hidden-lg">
         {
           store.btnItems.map((v, i) =>
             <div className="item-warp" key={ i }>

@@ -34,27 +34,19 @@ export default class extends React.Component {
   }
 
   async onCreate() {
-  	var type = document.querySelector("#found").checked ? 1 : 2
-  	var mouthObject = document.querySelector(".selMouth")
-  	var dayObject = document.querySelector(".selDay")
-  	var dateObject = document.querySelector(".selTime")
-  	var hourObject = document.querySelector(".selHour")
-	  var time =
-    new Date().getFullYear() + '-' + 
-    mouthObject.options[mouthObject.selectedIndex].text + '-' + 
-    dayObject.options[dayObject.selectedIndex].text + ' ' +
-    hourObject.options[hourObject.selectedIndex].text + ':00:00'
+  	var type = document.querySelector("#buy").checked ? 1 : 2
     
     var res = await Post({
-      url: 'api/v3/Loses/create/'
+      url: 'api/v3/trade/create/'
         + store.userData.data.studentKH + '/' + store.userData.data.remember_code_app,
       data: {
         tit: document.querySelector(".title").value,
-        locate: document.querySelector(".locate").value,
-        time: time,
+        address: document.querySelector(".locate").value,
+        prize: document.querySelector(".prize").value,
         content: document.querySelector('textarea').value,
         hidden: this.state.urls.join('//'),
         phone: document.querySelector(".phone").value,
+        attr: document.querySelector(".attr").value,
         type: type
       }
     })
@@ -79,23 +71,33 @@ export default class extends React.Component {
     return (
       <Trans className="lafCreate">
         <nav> 
-          发布
+          二手发布
           <i className="fa-ok create" onClick={ this.onCreate }/>
         </nav>
         <section className="content scroll">
           <div className="message">
-            <p>拾到物品</p>
-            <input className="input title" placeholder="请输入物品名"/>
+            <p>添加标题</p>
+            <input className="input title" placeholder="请输入标题"/>
           </div>
 
           <div className="message">
-            <p>拾到地点</p>
-            <input className="input locate" placeholder="请输入地点"/>
+            <p>价格</p>
+            <input className="input prize" placeholder="请输入价格"/>
+          </div>
+
+          <div className="message">
+            <p>发布区域</p>
+            <input className="input locate" placeholder="请输入区域"/>
           </div>
 
           <div className="message">
             <p>联系方式</p>
             <input className="input phone" placeholder="请输入联系方式"/>
+          </div>
+          
+          <div className="message">
+            <p>成色</p>
+            <input className="input attr" placeholder="请输入成色"/>
           </div>
 
           <div className="message">
@@ -110,37 +112,17 @@ export default class extends React.Component {
             <p>图片</p>
             <Upload 
             className="upload" max="6" onChange={ this.onPicChange }
-            upURL={ store.picUpPrefix +  `/api/v3/upload/images/${id}/${code}/${enc}/2`} />
-          </div>
-
-          <div className="message">
-            <p>拾到时间</p>
-
-            <select className="selMouth">
-              { state.mouth.map((v, i) => <option key={ i } >{ v }</option>) }
-            </select>
-            <span className="opt-title">月</span>
-
-            <select className="selDay">
-              { state.day.map((v, i) => <option key={ i }>{ v }</option>) }
-            </select>
-            <span className="opt-title">日</span>
-
-            <select className="selHour">
-              <option>00</option>
-              { state.hour.map((v, i) => <option key={ i }>{ v }</option>) }
-            </select>
-            <span className="opt-title">时</span>
+            upURL={ store.picUpPrefix +  `/api/v3/upload/images/${id}/${code}/${enc}/1`} />
           </div>
 
           <div className="message">
             <p>发布类型</p>
             <div className="type">
-              <input id="found" name="found" type="radio" name="ridao" defaultChecked />
-              <label htmlFor="found">招领</label>
+              <input id="sell" name="sell" type="radio" name="ridao" defaultChecked />
+              <label htmlFor="sell">出售</label>
               &nbsp;&nbsp;
-              <input id="lost" name="lost" type="radio" name="ridao" />
-              <label htmlFor="lost">遗失</label>
+              <input id="buy" name="buy" type="radio" name="ridao" />
+              <label htmlFor="buy">求购</label>
             </div>
           </div>
 

@@ -76,7 +76,7 @@ export default class extends React.Component {
     this.state.isMounted && this.setState({ rankList: rank })
   }
   
-  scoreRefresh(score){
+  scoreRefresh(score) {
   	let scoreNum = 0, gradeNum = 0, grade = score[0].xn
 	  let scoreList = [], gradeList = [], length = 0
   	score = score
@@ -99,7 +99,7 @@ export default class extends React.Component {
       { scoreList: scoreList})
   }
   
-  changeGrade(e){
+  changeGrade(e) {
   	let activeGrade = ['term', 'term', 'term', 'term', 'term']
   	activeGrade[e] = 'term term-active'
   	this.state.isMounted && this.setState(
@@ -114,7 +114,7 @@ export default class extends React.Component {
         <header>
           <span className="title">所有成绩</span>
         </header>
-        <div className="content">
+        <div className="content scroll">
           { this.state.isQueried ? '' : <div className="query">正在加载...</div> }
           {
             state.rankList.map((v, i) => 

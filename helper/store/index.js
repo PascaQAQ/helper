@@ -6,45 +6,49 @@ var store = {
 
   userData: { data: { } },
 
-  btnItems: [{
-    name: '课程/实验表',
-    class: 'list',
-    page: 'lesson'
-  }, {
-    name: '电费查询',
-    class: 'lightbulb',
-    page: 'power'
-  }, {
-    name: '考试计划',
-    class: 'paper-plane',
-    page: 'exam'
-  }, {
-    name: '网上作业',
-    class: 'pencil',
-    page: 'pencil'
-  }, {
-    name: '我的成绩',
-    class: 'calendar-check-o',
-    page: 'score'
-  }, {
-    name: '校园段子',
-    class: 'commenting-o',
-    page: 'jokes'
-  }, {
-    name: '图书馆',
-    class: 'book',
-    page: 'library'
-  },
-   {
-    name: '失物招领',
-    class: 'wallet',
-    page: 'lostAndFound'
-  }, 
-  {
-    name: '找人',
-    class: 'search',
-    page: 'find'
-  }],
+  btnItems: [
+    {
+      name: '课程 / 实验表',
+      class: 'list',
+      page: 'lesson'
+    }, {
+      name: '电费查询',
+      class: 'lightbulb',
+      page: 'power'
+    }, {
+      name: '考试计划',
+      class: 'paper-plane',
+      page: 'exam'
+    }, {
+      name: '我的成绩',
+      class: 'calendar-check-o',
+      page: 'score'
+    }, {
+      name: '校园段子',
+      class: 'commenting-o',
+      page: 'jokes'
+    }, {
+      name: '二手市场',
+      class: 'basket',
+      page: 'shop'
+    }, {
+      name: '失物招领',
+      class: 'wallet',
+      page: 'lostAndFound'
+    }, {
+      name: '网上作业',
+      class: 'pencil',
+      page: 'pencil'
+    }, {
+      name: '图书馆',
+      class: 'book',
+      page: 'library'
+    }, {
+      name: '找人',
+      class: 'search',
+      page: 'find'
+    }
+  ],
 
   calendar: [
     ['高考', '2018-06-07'],
@@ -58,13 +62,15 @@ var store = {
 
   beginLessonDate: Date.parse('2018-03-05T00:00:00'),
 
+  jokesView: 0,
+
   jokePage: 1,
   
   thingPage: 1,
 
   picPrefix: 'http://223.111.182.121:8888/',
 
-  picUpPrefix: 'https://www.hutjj.com',
+  picUpPrefix: 'https://pic.htmln.com',
 
   viewCnt: 0
 }
